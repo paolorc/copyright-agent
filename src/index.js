@@ -123,22 +123,25 @@ class FetchColors {
     return this;
   }
 
-  async fetch() {
+  fetch() {
     console.log(`DEBUG: ${this.colors} ${this.format} ${this.runner}`);
     const findColorCodes = this.colors.map(
       async (colorName) => await getColor(colorName)
     );
-    const colorsMetadata = await Promise.all(findColorCodes);
 
-    console.log(
-      `DEBUG: ${colorsMetadata.map(
-        (colorMetadata) =>
-          `\n ${colorMetadata.name} => ${JSON.stringify(
-            colorMetadata[this.format.toUpperCase()]
-          )}`
-      )}`
-    );
-    process.exit(1);
+    // Promise all preserve the order of inputs
+    // TODO: add when we pass an async or sync runner
+    Promise.all(findColorCodes).then((colorsMetadata) => {
+      console.log(
+        `DEBUG: ${colorsMetadata.map(
+          (colorMetadata) =>
+            `\n ${colorMetadata.name} => ${JSON.stringify(
+              colorMetadata[this.format.toUpperCase()]
+            )}`
+        )}`
+      );
+      process.exit(1);
+    });
   }
 }
 
