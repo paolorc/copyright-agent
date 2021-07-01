@@ -25,7 +25,7 @@ OBS: The API mock must be used and it must not be changed.
 
 ### How to use it
 
-- Command structure: `node src/index.js arg1 arg2 arg 3`
+- Command structure: `node src/index.js arg1 arg2 arg3`
   - arg1: color array in the order needed `(black, blue, green, red, white)`, by default will look for all colors e.g: `'["green","blue", "red", "white", "black"]'`
   - arg2: color format to return `(hex, rgb)`, by default will take `HEX` format
   - arg3: runner must be `(async, sync)`, by default is `async` to manage concurrency
