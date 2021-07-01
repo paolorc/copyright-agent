@@ -2,7 +2,10 @@
   "name": "code-challenge",
   "version": "1.0.0",
   "description": "A code challenge used to assess developers knowledge and skills",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "John Doe",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node src/index"
+  }
 }
